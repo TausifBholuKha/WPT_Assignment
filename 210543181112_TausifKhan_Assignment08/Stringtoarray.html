@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stinf to Object</title>
+</head>
+<body>
+    
+    <div class="container mt-5">
+        <button type="button" id="btn" >Json Data</button>
+        <div id="data"></div>
+    </div>
+  
+    <script>
+
+        document.getElementById("btn").onclick=function()
+        {
+            const xhttp = new XMLHttpRequest()
+            xhttp.open("GET","Customer.json",true)
+            xhttp.send()
+
+
+            xhttp.onreadystatechange=()=>
+            {
+                if(xhttp.readyState == 4 && xhttp.status==200)
+                {
+                    let obj = JSON.parse(xhttp.responseText)//Sting to object
+                    myfun(obj)
+                }
+                else if (xhttp.readyState==4)
+                {
+                    alert("could not fetch data")
+                }
+            }
+
+
+            function myfun(obj)
+            {
+                let data=''
+                for(let i=0;i<obj.length;i++)
+                {
+                    data += obj[i].cust_code+'   '+obj[i].cust_name+'   '+obj[i].gender+'   '+obj[i].DOB+'   '+obj[i].address+'   '+obj[i].phone+"<br>"
+                }
+                document.getElementById("data").innerHTML+=data
+            }
+        }
+
+    </script>
+</body>
+</html>

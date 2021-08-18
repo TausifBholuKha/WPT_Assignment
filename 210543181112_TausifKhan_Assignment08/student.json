@@ -1,0 +1,12 @@
+[
+    {"rollno":"1","name":"Reshma","age":"23","address":"pune","gender":"Female"},
+    {"rollno":"2","name":"Tausif","age":"27","address":"Pune","gender":"Male"},
+    {"rollno":"3","name":"Nikhil","age":"27","address":"Mumbai","gender":"Male"},
+    {"rollno":"4","name":"Nilam","age":"27","address":"Karad","gender":"Female"},
+    {"rollno":"5","name":"Rahul","age":"24","address":"Pune","gender":"Male"},
+    {"rollno":"6","name":"Roni","age":"22","address":"Mumbai","gender":"Male"},
+    {"rollno":"7","name":"Imran","age":"25","address":"Pune","gender":"Male"},
+    {"rollno":"8","name":"Rasika","age":"21","address":"Pune","gender":"Female"},
+    {"rollno":"9","name":"Jay","age":"22","address":"Mumbai","gender":"Male"},
+    {"rollno":"10","name":"Shivani","age":"23","address":"Pune","gender":"Female"}
+]

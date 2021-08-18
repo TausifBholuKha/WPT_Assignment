@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <button type="button" id="btn" >Json Data</button>
+        <table id="tab" style="border: 1px solid red; "></table>
+        <div id="data"></div>
+        
+    </div>
+    <script>
+       
+        document.getElementById("btn").onclick=function()
+        {
+            const xhttp = new XMLHttpRequest()
+            xhttp.open("GET","student.json",true)
+            xhttp.send()
+
+
+            xhttp.onreadystatechange=()=>
+            {
+                if(xhttp.readyState == 4 && xhttp.status==200)
+                {
+                    let obj = JSON.parse(xhttp.responseText)
+                    myfun(obj)
+                }
+                else if (xhttp.readyState==4)
+                {
+                    alert("could not fetch data")
+                }
+            }
+
+            
+            
+            function myfun(obj)
+            {
+                var body = document.getElementsByTagName('body')[0];
+                var tbl = document.createElement('table');
+                tbl.setAttribute('border', '1');
+                var tbdy = document.createElement('tbody');
+               
+                for (var j = 0; j < obj.length; j++) 
+                {      
+                    var tr = document.createElement('tr');
+                    var td = document.createElement('td');          
+                    td.appendChild(document.createTextNode(obj[j].rollno+" "))
+                    tr.appendChild(td)
+                    td.appendChild(document.createTextNode(obj[j].name+" "))
+                    tr.appendChild(td)
+                    td.appendChild(document.createTextNode(obj[j].age+" "))
+                    tr.appendChild(td)
+                    td.appendChild(document.createTextNode(obj[j].address+" "))
+                    tr.appendChild(td)
+                    td.appendChild(document.createTextNode(obj[j].gender+" "))
+                    tr.appendChild(td)
+                    tbdy.appendChild(tr);
+                    tbl.appendChild(tbdy);
+                    body.appendChild(tbl)
+                }
+                
+            }
+        }    
+
+        
+    </script>
+</body>
+</html>

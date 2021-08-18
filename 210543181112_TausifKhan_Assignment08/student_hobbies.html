@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen' href='css/bootstrap.min.css'>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src='js/bootstrap.min.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <button type="button" id="btn" >Json Data</button>
+        <ol id="list_id"></ol>
+    </div>
+    <script>
+        
+            $("#btn").click(()=>{
+                $.getJSON("student_hobbies.json",res=>{
+                    let stud='' 
+                    $.each(res,(key,value)=>{
+                        stud +='<li>'+value.name+" "+value.hobby+'</li>'
+                    })
+                    $("#list_id").append(stud)
+                })
+            })
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen' href='css/bootstrap.min.css'>
+    <script src='js/bootstrap.min.js'></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"> </script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"> </script> 
+    
+    <title>Document</title>
+    <style>
+        input[type="submit"]{
+            width: 100%;
+            font-size: 20px;
+            background: rgb(15, 114, 228);
+        }
+    </style>
+</head>
+<body>
+    <h2>Registration Page</h2>
+    <form id="frm" action="window.print()">
+    <div style="background: lightskyblue;width: 700px;height:auto; padding:20px">
+        <table style="padding: 10px;border-spacing: 20px;">
+            <tr >
+                <td >User Name &emsp;&emsp;&emsp;</td>
+                <td><input name="uname" type="text" ><br></td>
+            </tr>
+            <tr>
+                <td>First Name &emsp;&emsp;&emsp;</td>
+                <td><input name="fname" type="text" ><br></td>
+            </tr>
+            <tr>
+                <td>Last Name &emsp;&emsp;&emsp;</td>
+                <td><input name="lname" type="text" ><br></td>
+            </tr>
+            <tr>
+                <td>Password &emsp;&emsp;&emsp;</td>
+                <td><input name="pwd" type="text" ><br></td>
+            </tr>
+            <tr>
+                <td>Confirm Password &emsp;&emsp;&emsp;</td>
+                <td><input name="cpwd" type="text" ><br></td>
+            </tr>
+            <tr>
+                <td>Email &emsp;&emsp;&emsp;</td>
+                <td><input name="email" type="email" ><br></td>
+            </tr>
+            <tr>
+                <td>Gender &emsp;&emsp;&emsp;</td>
+                <td><input type="radio" name="Gender" ,id="gender">Male</td>
+                <td><input type="radio" name="Gender" id="gender">Female</td>
+            </tr>
+            <tr>
+                <td><input id="cb" type="checkbox" >I accept Trems and conditions.</td>
+                <td><input id="submit" type="submit" value="Register"  disabled="true"></td>
+            </tr>
+        </table>
+    </div>
+</form>
+<script>
+    $("#frm").submit(function()
+    {
+        $("#frm").validate({
+            rules:{
+                uname:{required:true},
+                fname:{required:true},
+                lname:{required:true},
+                pwd:{required:true},
+                cpwd:{required:true},
+                Gender:{required:true},
+                email:{required:true,email:true},
+                
+            },
+            submitHandler: function() { window.print() }
+        })
+        event.preventDefault();
+    })
+    $("#cb").click(function(){
+            if($(this).is(':checked')){
+            $("#submit").removeAttr("disabled")}
+            else{
+            $("#submit").attr("disabled",true)
+            }
+        })
+        
+
+
+
+</script>
+</body>
+</html>
